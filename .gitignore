@@ -1,2 +1,4 @@
 *.ifc
 *.blend
+utils/__pycache__/
+utils/__pycache__/*

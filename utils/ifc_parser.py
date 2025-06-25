@@ -1,7 +1,8 @@
-import ifc_processing.ifc_metadata as ifcm
+import ifc_metadata as ifcm
 import ifcopenshell
 import tqdm
-from visualization.visualize_ifc import visualize_ifc
+from ifcopenshell import geom
+from visualize_ifc import visualize_ifc
 
 
 class IFCParser:
@@ -14,7 +15,7 @@ class IFCParser:
         self.num2name_mapping = {}
 
         # viewer settings
-        self.settings = ifcopenshell.geom.settings()
+        self.settings = geom.settings()
         self.settings.set(self.settings.USE_PYTHON_OPENCASCADE, True)
 
     def parse_ifc(self):
@@ -165,7 +166,7 @@ class IFCParser:
 
 
 if __name__ == "__main__":
-    filepath = "./sample_data/ifc_file/20005_ARC_GMOD_GEOREF_IA_210408.ifc"
+    filepath = "./original_bim.ifc"
     ifc_parser = IFCParser(filepath)
     ifc_parser.parse_ifc()
     ifc_parser.separate_by_floor()
