@@ -92,8 +92,12 @@ http://localhost:7474
 # default credentials
 neo4j:neo4j
 
+----
 # on windows
 Install neo4j Desktop and add connection to WSL
+Go to conf and change network settings:
+    - server.default_advertised_address=<windows host IP>
+    - server.http.listen_address=:7475
 ```
 
 ## 4. load IFC into Neo4j
@@ -103,3 +107,12 @@ Install neo4j Desktop and add connection to WSL
 ## 6. Link Neo4J and PostgreSQL data
 
 ## 7. Visualization (maybe Three.js)
+
+## 8. neo4j syntax
+
+```bash
+# delete everything
+MATCH (n)
+DETACH DELETE n;
+
+```
